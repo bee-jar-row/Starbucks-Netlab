@@ -1,8 +1,8 @@
 "use client";
-
+ 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-
+ 
 const menuItems = [
   {
     id: 1,
@@ -10,7 +10,7 @@ const menuItems = [
     category: "Green Tea Series",
     price: "Rp 65.000",
     desc: "Ceremonial-grade matcha, steamed milk, a touch of sweetness.",
-    img: "/assets/starbucks_matcha latte.png",
+    img: "/assets/starbucks_matchalatte.png",
     tag: "BESTSELLER",
     tagColor: "bg-[#00704A]",
     cal: "240 cal",
@@ -32,7 +32,7 @@ const menuItems = [
     category: "Espresso Series",
     price: "Rp 72.000",
     desc: "Deep chocolate notes layered with velvety espresso foam.",
-    img: "/assets/starbucks_Dark Mocha Cappuchino.png",
+    img: "/assets/starbucks_DarkMochaCappuchino.png",
     tag: "NEW",
     tagColor: "bg-[#CBA258]",
     cal: "310 cal",
@@ -43,7 +43,7 @@ const menuItems = [
     category: "Seasonal Series",
     price: "Rp 78.000",
     desc: "Warm autumn spices, real pumpkin, espresso. A seasonal icon.",
-    img: "/assets/starbucks_Pumpkin Spice Latte.png",
+    img: "/assets/starbucks_PumpkinSpiceLatte.png",
     tag: "LIMITED",
     tagColor: "bg-[#8B4513]",
     cal: "380 cal",
@@ -54,7 +54,7 @@ const menuItems = [
     category: "Frappuccino Series",
     price: "Rp 80.000",
     desc: "Blended strawberry, cream, and ice. Refreshingly vibrant.",
-    img: "/assets/starbucks_strawberry frappuchino.png",
+    img: "/assets/starbucks_strawberryfrappuchino.png",
     tag: "POPULAR",
     tagColor: "bg-[#C41E3A]",
     cal: "420 cal",
@@ -65,35 +65,35 @@ const menuItems = [
     category: "Bakery",
     price: "Rp 45.000",
     desc: "Flaky, golden, layered with French butter. The perfect pairing.",
-    img: "/assets/starbucks_butter croissant.png",
+    img: "/assets/starbucks_buttercroissant.png",
     tag: "FOOD",
     tagColor: "bg-[#CBA258]",
     cal: "260 cal",
   },
 ];
-
+ 
 const stats = [
   { value: "36,000+", label: "Stores Worldwide" },
   { value: "100M+", label: "Weekly Customers" },
   { value: "1971", label: "Year Founded" },
   { value: "80+", label: "Countries Served" },
 ];
-
+ 
 export default function Home() {
   const [activeMenu, setActiveMenu] = useState(0);
   const [scrollY, setScrollY] = useState(0);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const [navOpen, setNavOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState("All");
-
+ 
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
-
+ 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
+ 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -108,13 +108,13 @@ export default function Home() {
     Object.values(sectionRefs.current).forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
   }, []);
-
+ 
   const setRef = (id: string) => (el: HTMLElement | null) => {
     sectionRefs.current[id] = el;
   };
-
+ 
   const isVisible = (id: string) => visibleSections.has(id);
-
+ 
   const filters = ["All", "Espresso", "Green Tea", "Frappuccino", "Seasonal", "Bakery"];
   const filterMap: Record<string, string> = {
     All: "",
@@ -124,12 +124,12 @@ export default function Home() {
     Seasonal: "Seasonal Series",
     Bakery: "Bakery",
   };
-
+ 
   const filteredMenu =
     activeFilter === "All"
       ? menuItems
       : menuItems.filter((item) => item.category === filterMap[activeFilter]);
-
+ 
   return (
     <div className="min-h-screen bg-[#FAFAF8] font-sans">
       
@@ -152,7 +152,7 @@ export default function Home() {
             </div>
             <span className="text-white font-bold text-lg tracking-wide">STARBUCKS</span>
           </div>
-
+ 
           
           <div className="hidden md:flex gap-8 text-white/80 text-sm font-medium tracking-wider">
             {["Menu", "Story", "Stores"].map((item) => (
@@ -165,7 +165,7 @@ export default function Home() {
               </a>
             ))}
           </div>
-
+ 
           
           <a
             href="#menu"
@@ -173,7 +173,7 @@ export default function Home() {
           >
             ORDER NOW
           </a>
-
+ 
           
           <button
             className="md:hidden text-white"
@@ -184,7 +184,7 @@ export default function Home() {
             <div className="w-4 h-0.5 bg-white" />
           </button>
         </div>
-
+ 
         
         {navOpen && (
           <div className="md:hidden bg-[#1E3932] px-6 pb-6 flex flex-col gap-4 text-white/80 text-sm font-medium">
@@ -201,13 +201,13 @@ export default function Home() {
           </div>
         )}
       </nav>
-
+ 
       
       <section className="relative min-h-screen bg-[#1E3932] overflow-hidden flex items-center">
         
         <div className="absolute top-[-120px] right-[-120px] w-[500px] h-[500px] rounded-full bg-[#00704A]/20 blur-3xl" />
         <div className="absolute bottom-[-80px] left-[-80px] w-[350px] h-[350px] rounded-full bg-[#CBA258]/10 blur-2xl" />
-
+ 
         
         <div className="absolute top-32 left-6 md:left-12 flex items-center gap-3">
           <div className="h-px w-12 bg-[#CBA258]" />
@@ -215,7 +215,7 @@ export default function Home() {
             01 / Introduction
           </span>
         </div>
-
+ 
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center w-full pt-28 pb-16">
           
           <div className="z-10">
@@ -250,7 +250,7 @@ export default function Home() {
               </a>
             </div>
           </div>
-
+ 
           
           <div className="flex justify-center items-center relative">
             <div className="absolute w-72 h-72 rounded-full bg-[#00704A]/30 blur-2xl" />
@@ -266,14 +266,14 @@ export default function Home() {
             </div>
           </div>
         </div>
-
+ 
         
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40">
           <span className="text-xs tracking-widest uppercase">Scroll</span>
           <div className="w-px h-10 bg-white/20 animate-pulse" />
         </div>
       </section>
-
+ 
       
       <section
         id="stats"
@@ -297,7 +297,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-
+ 
       
       <section id="menu" ref={setRef("menu")} className="py-24 bg-[#FAFAF8]">
         <div className="max-w-7xl mx-auto px-6">
@@ -323,7 +323,7 @@ export default function Home() {
               farms, prepared to highlight every natural flavor.
             </p>
           </div>
-
+ 
           
           <div className="flex flex-wrap gap-2 mb-10">
             {filters.map((f) => (
@@ -340,7 +340,7 @@ export default function Home() {
               </button>
             ))}
           </div>
-
+ 
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredMenu.map((item, i) => (
@@ -373,7 +373,7 @@ export default function Home() {
                     {item.cal}
                   </span>
                 </div>
-
+ 
                 
                 <div className="p-5">
                   <div className="text-[#00704A] text-[10px] font-bold tracking-widest uppercase mb-1">
@@ -397,7 +397,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+ 
       
       <section
         id="story"
@@ -415,7 +415,7 @@ export default function Home() {
               <div className="absolute -top-6 -left-6 w-32 h-32 border border-[#CBA258]/30 rounded-xl" />
               <div className="relative bg-[#00704A]/20 rounded-2xl p-8 flex justify-center">
                 <Image
-                  src="/assets/starbucks_matcha latte.png"
+                  src="/assets/starbucks_matchalatte.png"
                   alt="Featured"
                   width={300}
                   height={300}
@@ -424,7 +424,7 @@ export default function Home() {
               </div>
               <div className="absolute -bottom-6 -right-6 w-24 h-24 border border-[#00704A]/40 rounded-xl" />
             </div>
-
+ 
             
             <div>
               <div className="flex items-center gap-3 mb-4">
@@ -467,7 +467,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+ 
       
       <section
         id="stores"
@@ -503,7 +503,7 @@ export default function Home() {
               Download App
             </button>
           </div>
-
+ 
           
           <div className="mt-16 grid grid-cols-3 md:grid-cols-6 gap-4 max-w-2xl mx-auto opacity-30">
             {[...Array(6)].map((_, i) => (
@@ -521,7 +521,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+ 
       
       <footer className="bg-[#1E3932] py-12">
         <div className="max-w-7xl mx-auto px-6">
@@ -544,7 +544,7 @@ export default function Home() {
                 one neighborhood at a time.
               </p>
             </div>
-
+ 
             <div className="flex gap-12 text-white/40 text-xs">
               <div className="flex flex-col gap-2">
                 <span className="text-white/70 font-bold uppercase tracking-widest text-[10px] mb-1">
@@ -568,7 +568,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-
+ 
           <div className="mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-2 text-white/25 text-xs">
             <span>© 2026 Starbucks Corporation. All rights reserved.</span>
             <span>Made with Next.js + Tailwind CSS · Module 09</span>
