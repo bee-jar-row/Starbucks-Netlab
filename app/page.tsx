@@ -142,7 +142,7 @@ export default function Home() {
           
           <div className="flex items-center gap-3">
             <Image
-              src="/assets/YOUR_LOGO_FILENAME.png"
+              src="/assets/starbucks_logo.png"
               alt="Starbucks"
               width={40}
               height={40}
