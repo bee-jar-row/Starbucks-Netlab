@@ -139,7 +139,7 @@ export default function Home() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-
+          
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-[#00704A] flex items-center justify-center">
               <Image
@@ -153,6 +153,7 @@ export default function Home() {
             <span className="text-white font-bold text-lg tracking-wide">STARBUCKS</span>
           </div>
 
+          
           <div className="hidden md:flex gap-8 text-white/80 text-sm font-medium tracking-wider">
             {["Menu", "Story", "Stores"].map((item) => (
               <a
@@ -165,6 +166,7 @@ export default function Home() {
             ))}
           </div>
 
+          
           <a
             href="#menu"
             className="hidden md:block bg-[#CBA258] text-[#1E3932] text-sm font-bold px-5 py-2 rounded-full hover:bg-[#d4aa5e] transition-colors duration-200 tracking-wide"
@@ -172,6 +174,7 @@ export default function Home() {
             ORDER NOW
           </a>
 
+          
           <button
             className="md:hidden text-white"
             onClick={() => setNavOpen(!navOpen)}
@@ -182,7 +185,7 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Mobile menu */}
+        
         {navOpen && (
           <div className="md:hidden bg-[#1E3932] px-6 pb-6 flex flex-col gap-4 text-white/80 text-sm font-medium">
             {["Menu", "Story", "Stores"].map((item) => (
@@ -199,11 +202,13 @@ export default function Home() {
         )}
       </nav>
 
+      
       <section className="relative min-h-screen bg-[#1E3932] overflow-hidden flex items-center">
-        {/* Decorative circles */}
+        
         <div className="absolute top-[-120px] right-[-120px] w-[500px] h-[500px] rounded-full bg-[#00704A]/20 blur-3xl" />
         <div className="absolute bottom-[-80px] left-[-80px] w-[350px] h-[350px] rounded-full bg-[#CBA258]/10 blur-2xl" />
 
+        
         <div className="absolute top-32 left-6 md:left-12 flex items-center gap-3">
           <div className="h-px w-12 bg-[#CBA258]" />
           <span className="text-[#CBA258] text-xs tracking-[0.3em] font-medium uppercase">
@@ -212,7 +217,7 @@ export default function Home() {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center w-full pt-28 pb-16">
-          {/* Text */}
+          
           <div className="z-10">
             <p className="text-[#CBA258] text-xs tracking-[0.4em] font-bold uppercase mb-4">
               Est. 1971 · Seattle, WA
@@ -246,6 +251,7 @@ export default function Home() {
             </div>
           </div>
 
+          
           <div className="flex justify-center items-center relative">
             <div className="absolute w-72 h-72 rounded-full bg-[#00704A]/30 blur-2xl" />
             <div className="relative z-10 hover:scale-105 transition-transform duration-500">
@@ -261,12 +267,14 @@ export default function Home() {
           </div>
         </div>
 
+        
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40">
           <span className="text-xs tracking-widest uppercase">Scroll</span>
           <div className="w-px h-10 bg-white/20 animate-pulse" />
         </div>
       </section>
 
+      
       <section
         id="stats"
         ref={setRef("stats")}
@@ -290,9 +298,10 @@ export default function Home() {
         </div>
       </section>
 
+      
       <section id="menu" ref={setRef("menu")} className="py-24 bg-[#FAFAF8]">
         <div className="max-w-7xl mx-auto px-6">
-          {/* Section header — pitch deck */}
+          
           <div
             className={`mb-14 transition-all duration-700 ${
               isVisible("menu") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -315,6 +324,7 @@ export default function Home() {
             </p>
           </div>
 
+          
           <div className="flex flex-wrap gap-2 mb-10">
             {filters.map((f) => (
               <button
@@ -331,6 +341,7 @@ export default function Home() {
             ))}
           </div>
 
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredMenu.map((item, i) => (
               <div
@@ -342,7 +353,8 @@ export default function Home() {
                 }`}
                 style={{ transitionDelay: `${i * 80}ms` }}
                 onClick={() => setActiveMenu(item.id)}
-
+              >
+                
                 <div className="relative bg-[#F2EFE4] h-52 flex items-center justify-center overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
                   <Image
@@ -362,6 +374,7 @@ export default function Home() {
                   </span>
                 </div>
 
+                
                 <div className="p-5">
                   <div className="text-[#00704A] text-[10px] font-bold tracking-widest uppercase mb-1">
                     {item.category}
@@ -385,6 +398,7 @@ export default function Home() {
         </div>
       </section>
 
+      
       <section
         id="story"
         ref={setRef("story")}
@@ -396,7 +410,7 @@ export default function Home() {
               isVisible("story") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-
+            
             <div className="relative">
               <div className="absolute -top-6 -left-6 w-32 h-32 border border-[#CBA258]/30 rounded-xl" />
               <div className="relative bg-[#00704A]/20 rounded-2xl p-8 flex justify-center">
@@ -411,6 +425,7 @@ export default function Home() {
               <div className="absolute -bottom-6 -right-6 w-24 h-24 border border-[#00704A]/40 rounded-xl" />
             </div>
 
+            
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="h-px w-10 bg-[#CBA258]" />
@@ -453,6 +468,7 @@ export default function Home() {
         </div>
       </section>
 
+      
       <section
         id="stores"
         ref={setRef("stores")}
@@ -488,6 +504,7 @@ export default function Home() {
             </button>
           </div>
 
+          
           <div className="mt-16 grid grid-cols-3 md:grid-cols-6 gap-4 max-w-2xl mx-auto opacity-30">
             {[...Array(6)].map((_, i) => (
               <div key={i} className="flex justify-center">
@@ -505,6 +522,7 @@ export default function Home() {
         </div>
       </section>
 
+      
       <footer className="bg-[#1E3932] py-12">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
